@@ -28,6 +28,13 @@ public class AppTest {
                     "{\"orderNo\":\"409327485512468136749254027\",\"productName\":\"测试验签工具\",\"total\":10000,\"payMode\":\"wxpay\",\"payChannel\":\"NATIVE\",\"callbackUrl\":\"http://www.baidu.com?ad=12\"}",
                     1698911283190l);
             System.out.println(str);
+            str = paymentSign.createCloudApiHmacSign(
+                    "POST",
+                    "/v1/access/prepay",
+                    "",
+                    "{\"orderNo\":\"409327485512468136749254027\",\"productName\":\"测试验签工具\",\"total\":10000,\"payMode\":\"wxpay\",\"payChannel\":\"NATIVE\",\"callbackUrl\":\"http://www.baidu.com?ad=12\"}",
+                    1698911283190l);
+            System.out.println(str);
         } catch (Exception e) {
             e.printStackTrace();
         }

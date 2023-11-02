@@ -49,8 +49,7 @@ public class CloudApiSign {
             String queryString,
             String body,
             long timestamp) throws Exception {
-        String nonceStr = "IwvFjfGE86baEC5tg9k9I";
-        // UUID.randomUUID().toString();
+        String nonceStr = UUID.randomUUID().toString();
         /************ 拼接待签字符串 ************/
         StringBuilder sb = new StringBuilder();
         sb.append(serviceName);
