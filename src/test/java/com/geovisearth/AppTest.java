@@ -15,12 +15,47 @@ public class AppTest {
      * Rigorous Test :-)
      */
     @Test
+    public void TestDataCloudSign() {
+        try {
+            DataCloudSign sign = new DataCloudSign("your secretId", "your secretKey");
+            String str = sign.createCloudApiHmacSign(
+                    "GET",
+                    "/v1/cloudapi/application/myPublicAppList",
+                    "channel=channel&phone=phone",
+                    "",
+                    1700605445644l);
+            System.out.println(str);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void TestCertificationSign() {
+        try {
+            CertificationSign sign = new CertificationSign("your secretId", "your secretKey");
+            String str = sign.createCloudApiHmacSign(
+                    "GET",
+                    "/v1/cloudapi/user/status",
+                    "channel=channel&phone=phone",
+                    "",
+                    1700605445644l);
+            System.out.println(str);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Rigorous Test :-)
+     */
+    @Test
     public void TestPaymentSign() {
         try {
             PaymentSign paymentSign = new PaymentSign(
-                    "secretId",
-                    "oL9Ebg3ofo9pyaB42KMokWzc0SMQQeLjFkVF33U6N1M=",
-                    "mchid");
+                    "your secretId",
+                    "your secretKey",
+                    "your mchid");
             String str = paymentSign.createCloudApiHmacSign(
                     "POST",
                     "/v1/access/prepay",
